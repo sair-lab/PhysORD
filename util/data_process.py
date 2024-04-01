@@ -185,13 +185,6 @@ def get_test_data(eval_data_fp, norm_params, T, sample_intervals):
         state = get_state_seq_from_traj(traj, min_val_st, max_val_st, min_val_brake, max_val_brake)
         state = arrange_data_sample(state, T + 1, sample_intervals)
         state = torch.from_numpy(state) 
-
-        initial_x = state[0, :, 0].unsqueeze(0)
-        initial_y = state[0, :, 1].unsqueeze(0)
-        initial_x = initial_x.expand(state.size(0), -1)
-        initial_y = initial_y.expand(state.size(0), -1)
-        state[:, :, 0] = state[:, :, 0] - initial_x
-        state[:, :, 1] = state[:, :, 1] - initial_y
         states_test.append(state)
     test_x_cat = torch.cat(states_test, dim=1)
     return test_x_cat

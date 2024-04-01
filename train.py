@@ -137,11 +137,11 @@ def train(args, train_data, val_data):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=None)
-    parser.add_argument('--exp_name', default='physord_s5', type=str, help='experiment name')
+    parser.add_argument('--exp_name', default='physord', type=str, help='experiment name')
     parser.add_argument('--train_data_size', type=int, default=507, help='number of training data: 100% = 507, 80% = 406, 50% = 254, 10% = 51, 1%=5')
-    parser.add_argument('--timesteps', type=int, default=5, help='number of prediction steps')
-    parser.add_argument('--preprocessed_data_dir', default=None, type=str, help='directory of the preprocessed data.')
-    parser.add_argument('--save_dir', default="./result2/", type=str, help='where to save the trained model')
+    parser.add_argument('--timesteps', type=int, default=20, help='number of prediction steps')
+    parser.add_argument('--preprocessed_data_dir', default='./data/', type=str, help='directory of the preprocessed data.')
+    parser.add_argument('--save_dir', default="./result/", type=str, help='where to save the trained model')
     parser.add_argument('--val_sample_interval', type=int, default=1, help='validation_data')
     parser.add_argument('--early_stop', dest='early_stopping', action='store_true', help='early stopping?')
     parser.add_argument('--pretrained', default=None, type=str, help='Path to the pretrained model. If not provided, no pretrained model will be loaded.')

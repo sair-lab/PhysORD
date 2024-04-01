@@ -5,7 +5,7 @@ from util.data_process import get_test_data
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--exp_name', default='physord_s5', type=str, help='experiment name')
+    parser.add_argument('--exp_name', default='physord', type=str, help='experiment name')
     parser.add_argument('--eval_data_fp', type=str, required=False, default='/data/data0/datasets/tartandrive/data/test-hard/', help='Path to test data')
     parser.add_argument('--timesteps', type=int, required=False, default=20, help='Number of timesteps to predict')
     parser.add_argument('--test_sample_interval', type=int, default=1, help='test data sample interval')
@@ -16,8 +16,8 @@ if __name__ == '__main__':
     # Load the model
     print("Loading the model ...")
     model = PhysORD(device=device, use_dVNet = True, time_step = 0.1).to(device)
-    model_dir = f'./result2/{args.exp_name}'
-    model_fp = f'{model_dir}/best/best-data507-timestep5.tar'
+    model_dir = f'./pretrained/{args.exp_name}'
+    model_fp = f'{model_dir}/best/best-data507-timestep20.tar'
     model.load_state_dict(torch.load(model_fp, map_location=device))
 
     # Load the data

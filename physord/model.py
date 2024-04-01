@@ -132,66 +132,31 @@ class PhysORD(torch.nn.Module):
             vk_next = vk_next[:,:,0]
 
             return torch.cat((qk_next, vk_next, omegak_next, sk, rpmk, uk), dim=1)
-
-    def predict_traininga(self, step_num, x, action):
-        # initial_x, initial_y = x[:, 0].clone(), x[:, 1].clone()
-        # x[:, 0] = x[:, 0] - initial_x
-        # x[:, 1] = x[:, 1] - initial_y
-
-        x = torch.cat((x, action[0:1,:]), dim = 1)
-        # print("x shape: ", x.shape)
-        xseq = x[None,:,:]
-        curx = x
-        for i in range(step_num):
-            nextx = self.step_forward(curx)
-            # curx = nextx
-            curx = torch.cat((nextx[:, :26], action[i+1:i+2,:]), dim = 1)
-            # print("curx shape: ", curx.shape)
-            xseq = torch.cat((xseq, curx[None,:,:]), dim = 0)
-        # for i in range(step_num + 1):
-        #     xseq[i, :, 0] = xseq[i, :, 0] + initial_x
-        #     xseq[i, :, 1] = xseq[i, :, 1] + initial_y
-
-        return xseq
     
     def efficient_evaluation(self, step_num, x, action):
-        # initial_x, initial_y = x[:, 0].clone(), x[:, 1].clone()
-        # x[:, 0] = x[:, 0] - initial_x
-        # x[:, 1] = x[:, 1] - initial_y
-
-        # x = torch.cat((x, action[0:1,:]), dim = 1)
-        # print("x shape: ", x.shape)
+        initial_x, initial_y = x[:, 0].clone(), x[:, 1].clone()
+        x[:, 0] = x[:, 0] - initial_x
+        x[:, 1] = x[:, 1] - initial_y
         xseq = x[None,:,:]
         curx = x
         for i in range(step_num):
             nextx = self.step_forward(curx)
-            # curx = nextx
             curx = torch.cat((nextx[:, :26], action[i+1, :, :]), dim = 1)
-            # print("curx shape: ", curx.shape)
             xseq = torch.cat((xseq, curx[None,:,:]), dim = 0)
-        # for i in range(step_num + 1):
-        #     xseq[i, :, 0] = xseq[i, :, 0] + initial_x
-        #     xseq[i, :, 1] = xseq[i, :, 1] + initial_y
+        for i in range(step_num + 1):
+            xseq[i, :, 0] = xseq[i, :, 0] + initial_x
+            xseq[i, :, 1] = xseq[i, :, 1] + initial_y
 
         return xseq
     
     def evaluation(self, step_num, traj):
-        # print("x shape: ", x.shape)
-        # print("traj: ", traj[:, 10])
         xseq = traj[0,:,:]
         xseq = xseq[None,:,:]
         curx = traj[0,:,:]
-        # print("curx shape: ", curx.shape)
         for i in range(step_num):
-            # print("curx", curx[10])
             nextx = self.step_forward(curx)
-            # curx = nextx
             curx = torch.cat((nextx[:, :26], traj[i+1, :,26:29]), dim = 1)
-            # print("curx shape: ", curx.shape)
             xseq = torch.cat((xseq, curx[None,:,:]), dim = 0)
-        # for i in range(step_num + 1):
-        #     xseq[i, :, 0] = xseq[i, :, 0] + initial_x
-        #     xseq[i, :, 1] = xseq[i, :, 1] + initial_y
 
         return xseq
 
