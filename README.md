@@ -13,7 +13,14 @@ This repository provides the official implementation of our paper, "PhysORD: A N
 ## Dataset
 - This project utilizes the [TartanDrive](https://github.com/castacks/tartan_drive) dataset. Follow the instructions in its [repository](https://github.com/castacks/tartan_drive?tab=readme-ov-file#create-traintest-split) to create the `train`, `test-easy` and `test-hard` sets.
 - `test-easy` is used for validation during training, and `test-hard` for model evaluation.
-- We also provide pre-processed data for quick reproduction. Download the [train_val_easy_507_step20.pt / ...step5.pt](https://drive.google.com/drive/folders/16PX9j6SUU8_LB0vq5wj31WWVUY49cR8l?usp=sharing) file into the [data](data) folder.
+- We also provide pre-processed data with 20-step and 5-step sequences for quick reproduction. You can download them into the [data](data) folder.
+```
+# 20-step
+wget -P data/ https://github.com/sair-lab/PhysORD/releases/download/data/train_val_easy_507_step20.pt
+
+# 5-step
+wget -P data/ https://github.com/sair-lab/PhysORD/releases/download/data/train_val_easy_507_step5.pt
+```
 
 ## Reproduce Guide
 To reproduce our result in the paper, you can follow the the steps below.
