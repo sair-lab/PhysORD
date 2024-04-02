@@ -37,7 +37,7 @@ python train.py
 - You can also set the sample intervals of the data with `--test_sample_interval`.
 - We provide a 20-step and a 5-step pretrained models for quick evaluation - see the folder [pretrained](pretrained) for both models.
 ```
-python eval.py
+python test.py
 ```
 
 
