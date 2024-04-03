@@ -2,7 +2,7 @@
 
 [**Zhipeng Zhao**](https://github.com/Zhaozhpe), [**Bowen Li**](https://github.com/Jaraxxus-Me), [**Yi Du**](https://github.com/Inoriros), [**Taimeng Fu**](https://github.com/FuTaimeng), and [**Chen Wang***](https://github.com/wang-chen)
 
-This repository provides the official implementation of our paper, "PhysORD: A Neuro-Symbolic Approach for Physics-infused Motion Prediction in Off-road Driving" [[PDF]()].
+This repository provides the official implementation of our paper, "PhysORD: A Neuro-Symbolic Approach for Physics-infused Motion Prediction in Off-road Driving" [[PDF](https://arxiv.org/abs/2404.01596)].
 
 ## Prerequisites
 
