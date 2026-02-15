@@ -1,8 +1,8 @@
 # PhysORD: A Neuro-Symbolic Approach for Physics-infused Motion Prediction in Off-road Driving
 
-[**Zhipeng Zhao**](https://github.com/Zhaozhpe), [**Bowen Li**](https://github.com/Jaraxxus-Me), [**Yi Du**](https://github.com/Inoriros), [**Taimeng Fu**](https://github.com/FuTaimeng), and [**Chen Wang***](https://github.com/wang-chen)
+This repository provides the official implementation for paper: 
 
-This repository provides the official implementation of our paper, "PhysORD: A Neuro-Symbolic Approach for Physics-infused Motion Prediction in Off-road Driving" [[PDF](https://arxiv.org/abs/2404.01596)].
+[**Zhipeng Zhao**](https://github.com/Zhaozhpe), [**Bowen Li**](https://github.com/Jaraxxus-Me), [**Yi Du**](https://github.com/Inoriros), [**Taimeng Fu**](https://github.com/FuTaimeng), and [**Chen Wang**](https://github.com/wang-chen), "[PhysORD: A Neuro-Symbolic Approach for Physics-infused Motion Prediction in Off-road Driving](https://arxiv.org/abs/2404.01596)." IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2024
 
 ## Prerequisites
 
@@ -42,10 +42,12 @@ python test.py
 
 
 ## Citation
-If you find our research helpful for your work, please consider starring this repo and citing our paper.
-
-
-
-## License
-
-This project is available under the BSD 3-Clause License - see the [LICENSE](LICENSE) file for details.
+```
+@inproceedings{zhao2024physord,
+  title = {{PhysORD}: A Neuro-Symbolic Approach for Physics-infused Motion Prediction in Off-road Driving},
+  author = {Zhao, Zhipeng and Li, Bowen and Du, Yi and Fu, Taimeng and Wang, Chen},
+  booktitle = {IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year = {2024},
+  pages = {11670--11677}
+}
+```
